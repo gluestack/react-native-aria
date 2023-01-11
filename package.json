@@ -1,30 +1,39 @@
 {
-  "name": "react-native-bob-mono",
+  "name": "react-native-aria",
   "version": "0.1.0",
-  "description": "mono repo setup with bob",
+  "description": "react native aria",
   "private": true,
   "workspaces": [
     "packages/*"
   ],
+  "scripts": {
+    "dev": "turbo run dev",
+    "build": "turbo run build --filter=@gluestack* --no-cache",
+    "test": "echo 1",
+    "clean": "turbo run clean && rm -rf node_modules",
+    "format": "prettier --write \"**/*.{ts,tsx,js,jsx,json,md}\" --ignore-path .gitignore",
+    "release": "changeset publish",
+    "prepare": "husky install",
+    "lint": "eslint packages/**/**/src --ext .ts,.tsx --config .eslintrc"
+  },
   "devDependencies": {
-    "@commitlint/config-conventional": "^11.0.0",
-    "@react-native-community/eslint-config": "^2.0.0",
+    "@changesets/cli": "^2.25.2",
+    "@commitlint/config-conventional": "^17.3.0",
+    "@react-native-community/eslint-config": "^3.2.0",
     "@release-it/conventional-changelog": "^2.0.0",
-    "@types/jest": "^26.0.0",
-    "@types/react": "^16.9.19",
-    "@types/react-native": "0.63.4",
     "commitlint": "^11.0.0",
-    "eslint": "^7.2.0",
+    "eslint": "^8.29.0",
     "eslint-config-prettier": "^7.0.0",
+    "eslint-plugin-ft-flow": "^2.0.3",
     "eslint-plugin-prettier": "^3.1.3",
     "husky": "^4.2.5",
     "jest": "^26.0.1",
+    "lint-staged": "^13.1.0",
     "pod-install": "^0.1.0",
     "prettier": "^2.0.5",
-    "react": "16.13.1",
-    "react-dom": "16.13.1",
-    "react-native": "0.63.4",
-    "react-native-builder-bob": "^0.17.1",
+    "release-it": "^15.5.1",
+    "tsc-files": "^1.1.3",
+    "turbo": "latest",
     "typescript": "^4.1.3"
   }
 }
