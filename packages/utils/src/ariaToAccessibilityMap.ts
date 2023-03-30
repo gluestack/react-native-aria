@@ -92,6 +92,29 @@ export const mapDomPropsToRN = (props: any) => {
   return newProps;
 };
 
+export const mapRNPropsToDomProps = ({ ...props }: any) => {
+  let newProps: any = { ...props };
+  for (let key in props) {
+    if (key.indexOf('accessibility') > -1) {
+      Object.keys(ariaToAccessibilityMap).map((key1) => {
+        if (ariaToAccessibilityMap[key1] == key) {
+          newProps = { ...newProps, [key1]: props[key] };
+        }
+      });
+    } else if (key.indexOf('data-') > -1) {
+      if (!newProps.dataSet) {
+        newProps.dataSet = {};
+      }
+
+      newProps.dataSet[key.split('data-')[1]] = props[key];
+    }
+  }
+  // Map RN web to aria accessibility equivalents
+
+  // const newProps = { ...props, 'aria-label': props.accessibilityLabel };
+  return newProps;
+};
+
 // RN web currently doesn't allow setting tabIndex via props, so need to be set using setNativeProps or ref
 // https://github.com/necolas/react-native-web/issues/1916
 // https://github.com/necolas/react-native-web/issues/1099
