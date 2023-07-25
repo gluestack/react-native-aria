@@ -126,7 +126,8 @@ export function OverlayContainer(props: ModalProviderProps) {
 
   // Rendering elements for SSR
   if (context?.isSSR && !overlayId.current) {
-    return <View style={{ display: 'none' }}>{element}</View>;
+    return element;
+    // return <View style={{ display: 'none' }}>{element}</View>;
   }
   return null;
 }
