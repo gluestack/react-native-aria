@@ -32,7 +32,7 @@ const ModalExample = () => {
     <View style={{ marginTop: 100 }}>
       <Pressable onPress={() => setIsOpen(true)}>Open</Pressable>
       {isOpen && (
-        <Dialog title="Enter your name">
+        <Dialog title="Enter your name" accessibilityLabel="test">
           <form style={{ display: "flex", flexDirection: "column" }}>
             <label htmlFor="first-name">First Name:</label>
             <input id="first-name" />
