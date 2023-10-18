@@ -1,6 +1,6 @@
 {
   "name": "@react-native-aria/slider",
-  "version": "0.2.8",
+  "version": "0.2.9",
   "description": "useSlider - React Native Aria",
   "main": "lib/commonjs/index",
   "module": "lib/module/index",
